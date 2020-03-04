@@ -20,7 +20,11 @@
                       </div>
                       
                       <div class="card-body">
-                        <p>Adicione um novo paciente preenchendo o formulário abaixo</p>
+                         @if(isset($paciente))
+                            <p>Edite um paciente existente modificando os campos abaixo.</p>
+                          @else
+                            <p>Adicione um novo paciente preenchendo o formulário abaixo</p>
+                          @endif
                         <hr>
                         <br>
                       

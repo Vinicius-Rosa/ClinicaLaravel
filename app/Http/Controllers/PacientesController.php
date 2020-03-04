@@ -6,6 +6,8 @@ use App\Http\Requests\PacienteRequest;
 use App\Models\ModelPaciente;
 use App\User;
 
+use Auth;
+
 class PacientesController extends Controller
 {
     
@@ -21,8 +23,8 @@ class PacientesController extends Controller
     
     public function index()
     {
-        $id=1;
-        $user = $this->objUser->find($id);
+        $user_id = Auth::id();
+        $user = $this->objUser->find($user_id);
         $pacientes = $this->objPaciente->paginate(5);
         return view('dashboard', compact('pacientes', 'user'));
         // dd($user);
@@ -35,7 +37,9 @@ class PacientesController extends Controller
      */
     public function create()
     {
-        return view('addpaciente');
+        $user_id = Auth::id();
+        $user = $this->objUser->find($user_id);
+        return view('addpaciente', compact('user'));
     }
 
     /**
@@ -78,8 +82,10 @@ class PacientesController extends Controller
      */
     public function edit($id)
     {
+        $user_id = Auth::id();
+        $user = $this->objUser->find($user_id);
         $paciente = $this->objPaciente->find($id);
-        return view('addpaciente', compact('paciente'));
+        return view('addpaciente', compact('paciente', 'user'));
     }
 
     /**

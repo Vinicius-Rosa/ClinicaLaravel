@@ -23,10 +23,12 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::resource('/perfil', 'UserController');
     
+    Route::get('/perfil/{id}/destroy', 'UserController@destroy');
+    
     Route::get('/logout', function(){
         Auth::logout();
         
         return redirect()->route('login');
     });
-    
+
 });

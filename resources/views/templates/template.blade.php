@@ -53,13 +53,13 @@
                 @endif  
                 
                 @if(isset($user))
-                    <small>{{ $user->name }}</small>
+                    <small>{{ $user->cargo }}</small>
                   @else
                     <small>Administrador</small>
                   @endif  
 
               </a>
-              <div class="dropdown-divider"></div><a href="login.html" class="dropdown-item">Sair</a>
+              <div class="dropdown-divider"></div><a href="{{ url('logout') }}" class="dropdown-item">Sair</a>
             </div>
           </li>
         </ul>
@@ -80,7 +80,7 @@
               <li class="sidebar-list-item"><a href="{{ url('/dashboard') }}" class="sidebar-link text-muted active"><i class="o-home-1 mr-3 text-gray"></i><span>Home</span></a></li>
               <li class="sidebar-list-item"><a href="{{ url("/perfil/$user->id/edit") }}" class="sidebar-link text-muted"><i class="o-user-1 mr-3 text-gray"></i><span>Perfil</span></a></li>
               <hr>
-              <li class="sidebar-list-item"><a href="{{ url('/login') }}" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-gray"></i><span>Sair</span></a></li>
+              <li class="sidebar-list-item"><a href="{{ url('logout') }}" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-gray"></i><span>Sair</span></a></li>
         </ul>
       </div>
 
@@ -117,6 +117,33 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
     <script src="{{ url('assets/js/script.js') }}"></script>
+
+    <script>
+    //   function delAccount(event) {
+    //     event.preventDefault();
+    //     let token = doc.getElementsByName("_token")[0].value;
+    //     if(
+            
+    //         confirm("Deseja mesmo apagar?")
+
+    //         ){
+    //         let ajax = new XMLHttpRequest();
+    //         ajax.open("DELETE", event.target.parentNode.href);
+
+    //         ajax.setRequestHeader('X-CSRF-TOKEN', token);
+    //         ajax.onreadystatechange = function (){
+    //             if(ajax.readyState === 4 && ajax.status === 200){
+    //                 // win.location.href="/";
+    //                 console.log('dale');
+    //             }
+                
+    //         };
+    //         ajax.send();
+    //     } else {
+    //         return false;
+    //     }
+    // }
+    </script>
 
   </body>
 </html>

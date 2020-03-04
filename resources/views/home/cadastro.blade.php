@@ -27,10 +27,10 @@
               <div class="form-group mb-4">
                 <input type="password" name="password" id="password" placeholder="Senha" class="form-control border-0 shadow form-control-lg text-violet">
               </div>
-              <button type="submit" class="btn btn-primary btn- shadow px-5">Entrar</button>
+              <button type="submit" class="btn btn-primary btn- shadow px-5">Cadastrar</button>
             </form>
             
-            <a href="login.html">
+            <a href="{{ url('/') }}">
               <p class="mt-3">Já possui uma conta? Conecte-se!</p>
             </a>
           </div>

@@ -11,7 +11,7 @@
             <h2 class="mb-4">Seja bem vindo!</h2>
             <p class="text-muted">Para se conectar conosco entre com suas informações nos campos abaixo :D</p>
 
-            @if ($errors->any)
+            <!-- @if ($errors->any)
               <div class="alert alert-danger">
                 <ul>
                   @foreach ($errors->all() as $error)
@@ -19,7 +19,7 @@
                   @endforeach
                 </ul>
               </div>
-            @endif
+            @endif -->
 
             @if(session('msg'))
               <div class="alert alert-danger">
@@ -37,7 +37,7 @@
               </div>
               <button type="submit" class="btn btn-primary btn- shadow px-5">Entrar</button>
             </form>
-            <a href="cadastro.html">
+            <a href="{{ url('cadastro') }}">
               <p class="mt-3">Não possui uma conta? Cadastre-se</p>
             </a>
           </div>
