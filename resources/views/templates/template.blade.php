@@ -31,16 +31,34 @@
       
       <!-- NAV -->
 
-      <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i class="fas fa-align-left"></i></a><a href="index.html" class="navbar-brand font-weight-bold text-uppercase text-base">Clínica Laravel</a>
+      <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i class="fas fa-align-left"></i></a><a href="/dashboard" class="navbar-brand font-weight-bold text-uppercase text-base">Clínica Laravel</a>
         <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
           <!-- Dropdown -> Editar perfil | Sair -->
           <li class="nav-item dropdown ml-auto">
             <a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
-              <strong class="text-muted text-gray-500">Pafuncio Figueiredo</strong>
+              <!-- <strong class="text-muted text-gray-500">Pafuncio Figueiredo</strong> -->
+              @if(isset($user))
+                <strong class="text-muted text-gray-500">{{ $user->name }}</strong>
+              @else
+                <strong class="text-muted text-gray-500">Pafuncio Figueiredo</strong>
+              @endif
               <!-- <img src="img/avatar-6.jpg" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"> -->
           </a>
             
-            <div aria-labelledby="userInfo" class="dropdown-menu"><a href="#" class="dropdown-item"><strong class="d-block text-uppercase headings-font-family">Pafuncio Figueiredo</strong><small>Administrador</small></a>
+            <div aria-labelledby="userInfo" class="dropdown-menu"><a href="#" class="dropdown-item">
+              @if(isset($user))
+                  <strong class="d-block text-uppercase headings-font-family">{{ $user->name }}</strong>
+                @else
+                  <strong class="d-block text-uppercase headings-font-family">Pafuncio Figueiredo</strong>
+                @endif  
+                
+                @if(isset($user))
+                    <small>{{ $user->name }}</small>
+                  @else
+                    <small>Administrador</small>
+                  @endif  
+
+              </a>
               <div class="dropdown-divider"></div><a href="login.html" class="dropdown-item">Sair</a>
             </div>
           </li>
@@ -59,8 +77,8 @@
       <div id="sidebar" class="sidebar py-3">
         <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">Principal</div>
         <ul class="sidebar-menu list-unstyled">
-              <li class="sidebar-list-item"><a href="{{ url('/') }}" class="sidebar-link text-muted active"><i class="o-home-1 mr-3 text-gray"></i><span>Home</span></a></li>
-              <li class="sidebar-list-item"><a href="{{ url('/perfil/1/edit') }}" class="sidebar-link text-muted"><i class="o-user-1 mr-3 text-gray"></i><span>Perfil</span></a></li>
+              <li class="sidebar-list-item"><a href="{{ url('/dashboard') }}" class="sidebar-link text-muted active"><i class="o-home-1 mr-3 text-gray"></i><span>Home</span></a></li>
+              <li class="sidebar-list-item"><a href="{{ url("/perfil/$user->id/edit") }}" class="sidebar-link text-muted"><i class="o-user-1 mr-3 text-gray"></i><span>Perfil</span></a></li>
               <hr>
               <li class="sidebar-list-item"><a href="{{ url('/login') }}" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-gray"></i><span>Sair</span></a></li>
         </ul>
@@ -77,7 +95,9 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-6 text-center text-md-left text-primary">
-                <p class="mb-2 mb-md-0">Vinicius Rosa &copy; 2020</p>
+                <a href="https://www.instagram.com/vrosa.jpg/?hl=pt-br">
+                  <p class="mb-2 mb-md-0">Vinicius Rosa &copy; 2020</p>
+                </a>
               </div>
               <div class="col-md-6 text-center text-md-right text-gray-400">
                 <p class="mb-0">Design by <a href="https://bootstrapious.com/admin-templates" class="external text-gray-400">Bootstrapious</a></p>

@@ -10,6 +10,7 @@
                     <div class="card">
                       <div class="card-header">
                         <h3 class="h6 text-uppercase mb-0">Perfil</h3>
+                        <!-- <h3 class="h6 text-uppercase mb-0">{{ $user->name }}</h3> -->
                       </div>
                       <div class="card-body">
                         <p>Edite as suas informações modificando os campos abaixo</p>

@@ -15,21 +15,18 @@ Route::get('/', 'HomeController@index')->name('login');
 
 Route::post('/login', 'HomeController@login');
 
-Route::get('/cadastro', function () {
-    return view('home.cadastro');
-});
+Route::resource('/cadastro', 'UserController');
 
 Route::group(['middleware' => ['auth']], function () {
     
     Route::resource('/dashboard', 'PacientesController');
-
+    
     Route::resource('/perfil', 'UserController');
-
+    
     Route::get('/logout', function(){
         Auth::logout();
-
+        
         return redirect()->route('login');
     });
-
+    
 });
-

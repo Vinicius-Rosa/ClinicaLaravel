@@ -10,18 +10,22 @@ class PacientesController extends Controller
 {
     
     private $objPaciente;
+    private $objUser;
     
     public function __construct()
     {
         $this->objPaciente = new ModelPaciente();
+        $this->objUser = new User();
     }  
     
     
     public function index()
     {
+        $id=1;
+        $user = $this->objUser->find($id);
         $pacientes = $this->objPaciente->paginate(5);
-        return view('dashboard', compact('pacientes'));
-        // dd($this->objPaciente);
+        return view('dashboard', compact('pacientes', 'user'));
+        // dd($user);
     }
 
     /**

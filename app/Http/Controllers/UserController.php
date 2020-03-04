@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PacienteRequest;
+use App\Http\Requests\UserRequest;
 use App\User;
 
 class UserController extends Controller
@@ -23,9 +23,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        // $user = $this->objUser->all();
-        // return view('perfil', compact('user'));
-        // dd($user);
+        return view('home.cadastro');
     }
 
     /**
@@ -44,9 +42,19 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PacienteRequest $request)
+    public function store(UserRequest $request)
     {
-        //
+        $cadastro = $this->objUser->create([
+            'name' => $request->name,
+            'cargo' => $request->cargo,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+
+        if($cadastro){
+            return redirect('dashboard');
+            // dd($cadastro);
+        }
     }
 
     /**
@@ -79,21 +87,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PacienteRequest $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        $cadastro = $this->objUser->create([
+        $this->objUser->where(['id' => $id])->update([
             'name' => $request->name,
             'cargo' => $request->cargo,
             'email' => $request->email,
             'password' => $request->password,
         ]);
-
-        if($cadastro){
-            return redirect('dashboard');
-            // dd($cadastro);
-        } else {
-            echo 'deu não';
-        }
+        
+        return redirect('dashboard');
     }
 
     /**

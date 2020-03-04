@@ -10,21 +10,22 @@
             <h2 class="mb-4">Faça parte do time!</h2>
             <p class="text-muted">Junte-se a nós e cadastre-se preenchendo os campos abaixo :D</p>
             
-            <form id="loginForm" action="index.html" class="mt-4">
+            <form id="loginForm" method="POST" action="{{ url('cadastro') }}" class="mt-4">
+              {{ csrf_field() }}
               <div class="form-group mb-4">
-                <input type="text" name="username" placeholder="Nome" class="form-control border-0 shadow form-control-lg">
+                <input type="text" name="name" id="name" placeholder="Nome" class="form-control border-0 shadow form-control-lg">
                 <small class="form-text text-muted ml-3">Exemplo: Vinicius Rosa R. de Oliveira</small>
               </div>
               <div class="form-group mb-4">
-                <input type="text" name="username" placeholder="Cargo" class="form-control border-0 shadow form-control-lg">
+                <input type="text" name="cargo" id="cargo" placeholder="Cargo" class="form-control border-0 shadow form-control-lg">
                 <small class="form-text text-muted ml-3">Exemplo: Administrador</small>
               </div>
               <div class="form-group mb-4">
-                <input type="email" name="username" placeholder="Email" class="form-control border-0 shadow form-control-lg">
+                <input type="email" name="email" id="email" placeholder="Email" class="form-control border-0 shadow form-control-lg">
                 <small class="form-text text-muted ml-3">Exemplo: vinicius-rosa@gmail.com</small>
               </div>
               <div class="form-group mb-4">
-                <input type="password" name="passowrd" placeholder="Senha" class="form-control border-0 shadow form-control-lg text-violet">
+                <input type="password" name="password" id="password" placeholder="Senha" class="form-control border-0 shadow form-control-lg text-violet">
               </div>
               <button type="submit" class="btn btn-primary btn- shadow px-5">Entrar</button>
             </form>
