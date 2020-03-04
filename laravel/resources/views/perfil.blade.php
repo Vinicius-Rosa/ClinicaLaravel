@@ -16,6 +16,7 @@
                         <hr>
                         <br>
                         <form class="form-horizontal">
+                          {{ method_field('PUT') }}
                           <div class="form-group row">
                             <label class="col-md-3 form-control-label">Nome</label>
                             <div class="col-md-9">

@@ -11,19 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect('/dashboard');
-});
+Route::get('/', 'HomeController@index')->name('login');
 
-Route::resource('/dashboard', 'PacientesController');
-
-Route::resource('/perfil', 'UserController');
-
-Route::get('/login', function () {
-    return view('login');
-});
-
+Route::post('/login', 'HomeController@login');
 
 Route::get('/cadastro', function () {
-    return view('cadastro');
+    return view('home.cadastro');
 });
+
+Route::group(['middleware' => ['auth']], function () {
+    
+    Route::resource('/dashboard', 'PacientesController');
+
+    Route::resource('/perfil', 'UserController');
+
+    Route::get('/logout', function(){
+        Auth::logout();
+
+        return redirect()->route('login');
+    });
+
+});
+
