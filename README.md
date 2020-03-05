@@ -12,5 +12,5 @@ O projeto está pronto para ser executado em localhost na porta 8000.
 
 
 ###### Créditos
-Autor: Vinícius Rosa
-Desenvolvido em: 05/03/2020
+- Autor: Vinícius Rosa
+- Desenvolvido em: 05/03/2020
