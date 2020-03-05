@@ -6,7 +6,7 @@ Aplicação desenvolvida exclusivamente com framework PHP Laravel e biblioteca B
 
 Clone o projeto na pasta apropriada para rodá-la no seu servidor local. Em seguida, execute o servidor com o banco de dados apropriado e, no terminal, navegue até a pasta do projeto e execute o seguinte comando.
 
-* ** _ php artisan serve _
+* ** _ php artisan serve _**
 
 O projeto está pronto para ser executado em localhost na porta 8000.
 
