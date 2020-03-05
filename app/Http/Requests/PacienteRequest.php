@@ -11,7 +11,7 @@ class PacienteRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize() //Caso exija login
+    public function authorize() 
     {
         return true;
     }

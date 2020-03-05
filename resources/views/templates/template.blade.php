@@ -77,8 +77,8 @@
       <div id="sidebar" class="sidebar py-3">
         <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">Principal</div>
         <ul class="sidebar-menu list-unstyled">
-              <li class="sidebar-list-item"><a href="{{ url('/dashboard') }}" class="sidebar-link text-muted active"><i class="o-home-1 mr-3 text-gray"></i><span>Home</span></a></li>
-              <li class="sidebar-list-item"><a href="{{ url("/perfil/$user->id/edit") }}" class="sidebar-link text-muted"><i class="o-user-1 mr-3 text-gray"></i><span>Perfil</span></a></li>
+              <li class="sidebar-list-item"><a href="{{ url('/dashboard') }}" class="sidebar-link text-muted @if(isset($pacientes)) active @endif"><i class="o-home-1 mr-3 text-gray"></i><span>Home</span></a></li>
+              <li class="sidebar-list-item"><a href="{{ url("/perfil/$user->id/edit") }}" class="sidebar-link text-muted @if(isset($perfil)) active @endif"><i class="o-user-1 mr-3 text-gray"></i><span>Perfil</span></a></li>
               <hr>
               <li class="sidebar-list-item"><a href="{{ url('logout') }}" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-gray"></i><span>Sair</span></a></li>
         </ul>
@@ -115,35 +115,10 @@
     <script src="{{ url('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ url('assets/vendor/jquery.cookie/jquery.cookie.js') }}"> </script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <!-- <script src="{{ url('assets/js/charts-home.js') }}"> </script> -->
+    <script src="{{ url('assets/js/front.js') }}"> </script>
 
     <script src="{{ url('assets/js/script.js') }}"></script>
-
-    <script>
-    //   function delAccount(event) {
-    //     event.preventDefault();
-    //     let token = doc.getElementsByName("_token")[0].value;
-    //     if(
-            
-    //         confirm("Deseja mesmo apagar?")
-
-    //         ){
-    //         let ajax = new XMLHttpRequest();
-    //         ajax.open("DELETE", event.target.parentNode.href);
-
-    //         ajax.setRequestHeader('X-CSRF-TOKEN', token);
-    //         ajax.onreadystatechange = function (){
-    //             if(ajax.readyState === 4 && ajax.status === 200){
-    //                 // win.location.href="/";
-    //                 console.log('dale');
-    //             }
-                
-    //         };
-    //         ajax.send();
-    //     } else {
-    //         return false;
-    //     }
-    // }
-    </script>
 
   </body>
 </html>

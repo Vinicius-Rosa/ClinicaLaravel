@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PacienteRequest;
-use App\Models\ModelPaciente;
+use App\Models\Paciente;
 use App\User;
 
 use Auth;
@@ -16,7 +16,7 @@ class PacientesController extends Controller
     
     public function __construct()
     {
-        $this->objPaciente = new ModelPaciente();
+        $this->objPaciente = new Paciente();
         $this->objUser = new User();
     }  
     
@@ -27,7 +27,7 @@ class PacientesController extends Controller
         $user = $this->objUser->find($user_id);
         $pacientes = $this->objPaciente->paginate(5);
         return view('dashboard', compact('pacientes', 'user'));
-        // dd($user);
+        // dd($pacientes);
     }
 
     /**

@@ -41,7 +41,7 @@
                           <div class="form-group row">
                             <label class="col-md-3 form-control-label">Senha</label>
                             <div class="col-md-9">
-                              <input id="" type="password" name="password" placeholder="Senha" class="form-control form-control-success" value="{{ $user->password }}">
+                              <input id="" type="password" name="password" placeholder="Senha" class="form-control form-control-success" value="">
                             </div>
                           </div>
                           <div class="form-group row">       
@@ -51,12 +51,39 @@
                           </div>
                         </form>
 
-                        <a href="{{ url("/perfil/$user->id/destroy") }}">
-                          <button class="btn btn-danger">
+                        
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delUser">
                             <i class="far fa-trash-alt"></i>
                             Deletar Perfil
                           </button>
-                        </a>
+
+
+                        <!-- DELETE USER MODAL -->
+                        <div class="modal fade" id="delUser" tabindex="-1" role="dialog" aria-labelledby="delUserLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="delUserLabel">Vai mesmo nos abandonar? &nbsp :(</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <p>Deseja mesmo deletar o usuário atual? <br> <br>
+                                Ao fazê-lo <strong>não haverá como reverter </strong> a ação. Esperamos que esteja ciente disso.</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                                <a href="{{ url("/perfil/$user->id/destroy") }}">
+                                  <button type="button" class="btn btn-danger">Excluir Usuário</button>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <!-- DELETE USER MODAL ENDS -->
+
                       </div>
                     </div>
                   <!-- </div> -->

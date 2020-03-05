@@ -78,10 +78,10 @@ class UserController extends Controller
     public function edit($id)
     {
         // $decrypt = Crypt::decrypt($this->objUser->password);  
-
+        $perfil = 0;
         $user = $this->objUser->find($id);
         // $this->objUser->password = $decrypt;
-        return view('perfil', compact('user'));
+        return view('perfil', compact('user', 'perfil'));
     }
 
     /**

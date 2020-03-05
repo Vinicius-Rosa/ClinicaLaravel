@@ -12,6 +12,7 @@
                   </div>
                     <div class="card-body">
                     {{ csrf_field() }}
+                    @if(sizeof($pacientes))
                       <table class="table card-text">
                         <thead>
                           <tr>
@@ -24,33 +25,39 @@
                           </tr>
                         </thead>
                         <tbody>
+                          
                         
-                        @foreach($pacientes as $paciente)
+                          @foreach($pacientes as $paciente)
+                              <tr>
+                                <th scope="row"> {{ $paciente->id }} </th>
+                                <td> {{ $paciente->name }} </td>
+                                <td> {{ $paciente->nasc }} </td>
+                                <td> {{ $paciente->sexo }} </td>
+                                <td>
+                                  <a href="{{ url("/dashboard/$paciente->id/edit") }}">
+                                  <button class="btn btn-warning">
+                                    <i class="far fa-edit"></i>
+                                  </button>
+                                  </a>
+                                </td>
+                                <td>
+                                  <a id="js-del" href="{{ url("/dashboard/$paciente->id") }}">
+                                    <button class="btn btn-danger">
+                                      <i class="far fa-trash-alt"></i>
+                                    </button>  
+                                  </a>
+                                </td>
+                              </tr>
+                          @endforeach
 
-                          <tr>
-                            <th scope="row"> {{ $paciente->id }} </th>
-                            <td> {{ $paciente->name }} </td>
-                            <td> {{ $paciente->nasc }} </td>
-                            <td> {{ $paciente->sexo }} </td>
-                            <td>
-                              <a href="{{ url("/dashboard/$paciente->id/edit") }}">
-                              <button class="btn btn-warning">
-                                <i class="far fa-edit"></i>
-                              </button>
-                              </a>
-                            </td>
-                            <td>
-                              <a id="js-del" href="{{ url("/dashboard/$paciente->id") }}">
-                                <button class="btn btn-danger">
-                                  <i class="far fa-trash-alt"></i>
-                                </button>  
-                              </a>
-                            </td>
-                          </tr>
-
-                        @endforeach
                         </tbody>
                       </table>
+                      @else
+                            <div class="">
+                                <h3>Ok, acho que não existem registros de pacientes.</h3>
+                                <p>Vamos lá, comece adicionando alguns!</p>
+                            </div>
+                        @endif
                       {{ $pacientes->links() }}
                 </div>
             </div>

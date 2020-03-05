@@ -17,6 +17,7 @@ Route::post('/login', 'HomeController@login');
 
 Route::resource('/cadastro', 'UserController');
 
+//Rotas Autenticadas
 Route::group(['middleware' => ['auth']], function () {
     
     Route::resource('/dashboard', 'PacientesController');
